@@ -14,9 +14,9 @@ class Person {
   
 }
 
-const male = new Person('adam', 'male', 0);
-const female = new Person('eve', 'female', 0);
-const jonBoy = new Person('jonny', 'apache helicopter', -75);
+let male = new Person('adam', 'male', 0);
+let female = new Person('eve', 'female', 0);
+let jonBoy = new Person('jonny', 'apache helicopter', -75);
 
 @Component({
   selector: 'app-root',
@@ -26,7 +26,7 @@ const jonBoy = new Person('jonny', 'apache helicopter', -75);
 export class AppComponent {
   title = 'app';
   
-  person= this.naturalSelection();
+  person = this.naturalSelection();
 
   naturalSelection() {
     let fate = Math.floor(Math.random() * 3);
@@ -36,6 +36,15 @@ export class AppComponent {
       return female;
     } else if(fate === 2){
       return jonBoy;
+    }
+    console.log(this.person);
+  }
+
+  toggle() {
+    if(this.person === male){
+      this.person = female;
+    } else if(this.person === female){
+      this.person = male;
     }
   }
 }
